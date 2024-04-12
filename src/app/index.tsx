@@ -1,7 +1,4 @@
 import { registerRootComponent } from 'expo';
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
-import { styles } from '../constants/styles'
 import Home from './home'
 import LandingPage from './landing';
 
@@ -11,7 +8,7 @@ export default function App() {
 //
 // return (<LandingPage/>)
 //
-// otherwise
+// otherwise go to home screen
     let cache_creds = false
     
     if (!cache_creds) {
