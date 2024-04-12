@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
         <View style={styles.main_area}>
-            <Text style={styles.header}>Hello android....</Text>
+            <Text style={styles.textHeader}>Hello android....</Text>
             <StatusBar style="auto" />
         </View>
     </View>

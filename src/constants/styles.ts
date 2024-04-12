@@ -11,11 +11,25 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    header: {
+    textHeader: {
         textAlign: 'center',
         fontSize: 30,
         fontWeight: 'bold',
         color: '#8711F5',
+    },
+    textButton: {
+        textAlign: 'center',
+        fontSize: 40,
+        fontWeight: 'bold',
+    }, 
+    button: {
+        minHeight: '10%',
+        minWidth: '60%',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(135, 17, 245, .5)',
+        borderRadius: 10, 
     },
     main_area: {
         height: '50%',

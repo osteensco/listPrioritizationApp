@@ -9,13 +9,24 @@ export default function LandingPage() {
   return (
     <View style={styles.container}>
         <View style={styles.container}>
-            <Link replace href="/home" asChild>
+            <Link replace href="/home" style={styles.button} asChild>
                 <Pressable>
-                    <Text>Get Started!</Text>
+                    <Text style={styles.textButton}>
+                        Continue
+                    </Text>
                 </Pressable>
             </Link>
         </View> 
-        <View style={styles.container}> 
+        <View style={styles.container}>
+            <Link replace href="" style={styles.button} asChild>
+                <Pressable>
+                    <Text style={styles.textButton}>
+                        Sign In
+                    </Text>
+                </Pressable>
+            </Link>
+        </View> 
+        <View> 
             <StatusBar style="auto" />
         </View>
     </View>
