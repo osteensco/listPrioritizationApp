@@ -31,6 +31,12 @@ export const styles = StyleSheet.create({
         backgroundColor: 'rgba(135, 17, 245, .5)',
         borderRadius: 10, 
     },
+    list_item: {
+        backgroundColor: '#4B4B4B',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,                        
+    },
     main_area: {
         height: '50%',
         width: '90%',

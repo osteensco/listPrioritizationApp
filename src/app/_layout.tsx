@@ -19,9 +19,9 @@ export default function Layout() {
         },
       }}
     >
-        <GestureHandlerRootView style={{ flex: 1 }}>
-            <Drawer />
-        </GestureHandlerRootView>
+        // <GestureHandlerRootView style={{ flex: 1 }}>
+        //     <Drawer />
+        // </GestureHandlerRootView>
     </Stack>
   );
 }
