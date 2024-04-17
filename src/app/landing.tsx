@@ -3,6 +3,12 @@ import { StatusBar } from 'expo-status-bar';
 import { styles } from '../constants/styles'
 import { Link, Stack } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
+import { Button } from '../components/button';
+
+
+
+
+
 
 
 export default function LandingPage() {
@@ -18,24 +24,8 @@ export default function LandingPage() {
                 headerShown: false,
             }}
         />
-        <View style={styles.container}>
-            <Link replace href="home" style={styles.button} asChild>
-                <Pressable>
-                    <Text style={styles.textButton}>
-                        Continue
-                    </Text>
-                </Pressable>
-            </Link>
-        </View> 
-        <View style={styles.container}>
-            <Link replace href="" style={styles.button} asChild>
-                <Pressable>
-                    <Text style={styles.textButton}>
-                        Sign In
-                    </Text>
-                </Pressable>
-            </Link>
-        </View> 
+    <Button text="Continue" linkPath="/home" />
+    <Button text="Sign In" linkPath="" />
         <View> 
             <StatusBar style="auto" />
         </View>

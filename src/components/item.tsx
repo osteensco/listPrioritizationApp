@@ -23,11 +23,11 @@ export const DATA = [
 
 
 
-type ItemProps = {title: string}
+type itemProps = {text: string}
 
-export const Item = ({title}: ItemProps) => (
+export const Item = ({text}: itemProps) => (
     <View style={styles.list_item}>
-        <Text style={styles.textHeader}>{title}</Text>
+        <Text style={styles.textHeader}>{text}</Text>
     </View>
 )
 
