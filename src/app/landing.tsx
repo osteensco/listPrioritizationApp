@@ -1,7 +1,7 @@
-import { Pressable, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { styles } from '../constants/styles'
-import { Link, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 import { Button } from '../components/button';
 
