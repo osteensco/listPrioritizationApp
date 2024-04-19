@@ -28,7 +28,6 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'rgba(135, 17, 245, .5)',
         borderRadius: 10, 
     },
     list_item: {
@@ -44,7 +43,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 3,
-        borderColor: 'rgba(135, 17, 245, .5)',
+        borderColor: '#8711f580',
         borderRadius: 10,
     },
   modalView: {

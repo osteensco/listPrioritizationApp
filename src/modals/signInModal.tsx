@@ -1,6 +1,6 @@
 import { Text, View, Modal } from 'react-native';
 import { styles } from '../constants/styles'
-import { modalVisible, setModalVisible } from '../constants/states';
+
 
 
 
@@ -12,10 +12,10 @@ export const SignInModal = () => (
     <Modal
         animationType="slide" 
         transparent={true} 
-        visible={modalVisible} 
-        onRequestClose={
-            () => setModalVisible(!modalVisible) 
-        }
+        visible={false} 
+        // onRequestClose={
+        //     () => setModalVisible(false) 
+        // }
     >
 
         <View style={styles.container}>
