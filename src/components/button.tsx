@@ -1,38 +1,38 @@
 import { Text, View, Pressable } from 'react-native';
 import { styles } from '../constants/styles'
 import { Link } from 'expo-router';
+import { modalVisible, setModalVisible } from '../constants/states';
+import { buttonProps } from '../constants/interfaces';
 
 
 
 
-interface buttonProps {
-    modal?: null | boolean,
-    text: string,
-    linkPath: string,
-    }
-// instead create an additional options interface?
-export const Button = ({modal=false, text="test", linkPath=""}: buttonProps) => {
+
+
+export const Button = ({action, text, linkPath}: buttonProps) => {
      
-    if ({modal}) {
-        return (
-            <View style={styles.container}>
-                    <Pressable style={styles.button}>
+    switch(action) {
+        case 'modal':
+            return (
+                    <Pressable 
+                        style={styles.button}
+                        onPress={() => setModalVisible(true)} 
+                    >
                         <Text style={styles.textButton}>{text}</Text>
                     </Pressable>
-            </View>
-        ) 
-    } else {
-        return (
-            <View style={styles.container}>
-                <Link href={linkPath} style={styles.button} asChild>
-                    <Pressable>
-                        <Text style={styles.textButton}>{text}</Text>
-                    </Pressable>
-                </Link>
-            </View>
-        )
+            ) 
+        case 'navigation':
+            return (
+                    <Link href={linkPath} style={styles.button} asChild>
+                        <Pressable>
+                            <Text style={styles.textButton}>{text}</Text>
+                        </Pressable>
+                    </Link>
+            )
     }
+
 }
+
 
 
 

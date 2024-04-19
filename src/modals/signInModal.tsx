@@ -5,31 +5,27 @@ import { modalVisible, setModalVisible } from '../constants/states';
 
 
 
-type buttonProps = {
-    text: string,
-    linkPath: string,
-    }
 
-export const SignInModal = ({text, linkPath}: buttonProps) => ( 
-    
+
+export const SignInModal = () => ( 
+
     <Modal
         animationType="slide" 
         transparent={true} 
         visible={modalVisible} 
         onRequestClose={
-            () => { 
-                setModalVisible(!modalVisible) 
-            }
+            () => setModalVisible(!modalVisible) 
         }
     >
 
         <View style={styles.container}>
-            <View></View>
-            <View><Text>I'm a modal! :D</Text></View>
-            <View></View>
+            <View style={styles.modalView}>
+                <Text>I'm a modal! :D</Text>
+            </View>
         </View>
 
     </Modal>
+
 )
 
 

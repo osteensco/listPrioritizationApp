@@ -2,6 +2,11 @@ import { registerRootComponent } from 'expo';
 import Home from './home'
 import LandingPage from './landing';
 
+
+
+
+
+
 export default function App() {
 
 // check user cred cache, if miss:
@@ -26,5 +31,6 @@ export default function App() {
 
 
 registerRootComponent(App);
+
 
 

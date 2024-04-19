@@ -1,5 +1,6 @@
 import { Text, View } from 'react-native';
 import { styles } from '../constants/styles'
+import { itemProps } from '../constants/interfaces';
 
 
 
@@ -23,7 +24,6 @@ export const DATA = [
 
 
 
-type itemProps = {text: string}
 
 export const Item = ({text}: itemProps) => (
     <View style={styles.list_item}>

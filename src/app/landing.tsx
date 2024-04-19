@@ -24,8 +24,8 @@ export default function LandingPage() {
                 headerShown: false,
             }}
         />
-    <Button text="Continue" linkPath="/home" />
-    <Button text="Sign In" linkPath="" />
+    <Button action="navigation" text="Continue" linkPath="/home" />
+    <Button action="navigation" text="Sign In" linkPath="" />
         <View> 
             <StatusBar style="auto" />
         </View>

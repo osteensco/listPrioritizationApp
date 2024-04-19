@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
-import { View } from 'react-native-reanimated/lib/typescript/Animated';
+
 
 
 
