@@ -1,8 +1,25 @@
-// import { useState } from "react";
 
 
 
-// export const [modalVisible, setModalVisible] = useState(false)
+export class ModalState {
+    
+    public visible: boolean 
+
+    constructor() {
+        this.visible = false
+    }
+
+    public show() {
+        this.visible = true
+    }
+
+    public hide() {
+        this.visible = false
+    }
+
+}
+
+
 
 
 

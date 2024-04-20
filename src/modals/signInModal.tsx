@@ -1,5 +1,6 @@
 import { Text, View, Modal } from 'react-native';
 import { styles } from '../constants/styles'
+import { modalProps } from '../constants/interfaces';
 
 
 
@@ -7,15 +8,15 @@ import { styles } from '../constants/styles'
 
 
 
-export const SignInModal = () => ( 
+export const SignInModal = ({visible, setVisible}: modalProps) => ( 
 
     <Modal
         animationType="slide" 
         transparent={true} 
-        visible={false} 
-        // onRequestClose={
-        //     () => setModalVisible(false) 
-        // }
+        visible={visible} 
+        onRequestClose={
+            () => setVisible(!visible) 
+        }
     >
 
         <View style={styles.container}>

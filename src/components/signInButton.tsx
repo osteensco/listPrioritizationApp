@@ -1,16 +1,32 @@
-import { Button } from "./button";
+import { View, Pressable, Text } from "react-native";
+import { styles } from "../constants/styles";
+import { signinButtonProps } from "../constants/interfaces";
 
 
 
-export const SignInButton = () => {
-    const loggedIn=false //TODO user creds
-    if (!loggedIn) {
+
+
+
+
+export const SignInButton = ( { setModalVisible }: signinButtonProps) => {
+
         return (
-            <Button action="modal" text="Sign In" linkPath="" />
+                    <Pressable 
+                        onPress={
+                            () => {
+                                setModalVisible(true)
+                            }
+                        } 
+                    >
+                        {({ pressed }) => (
+                            <View style={[styles.button,{ backgroundColor: pressed ? '#4B4B4B' : '#8711f580'  },]}>
+                                <Text style={styles.textButton}>Sign In</Text>
+                            </View>
+                        )}
+                    </Pressable>
+
         )
-    } else {
-        return (<></>)
-    }
+
 }
 
 

@@ -3,8 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { styles } from '../constants/styles'
 import { Stack } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
-import { Button } from '../components/button';
-
+import { NavButton } from '../components/navButton';
 
 
 
@@ -24,8 +23,8 @@ export default function LandingPage() {
                 headerShown: false,
             }}
         />
-    <Button action="navigation" text="Continue" linkPath="/home" />
-    <Button action="navigation" text="Sign In" linkPath="" />
+    <NavButton text="Continue" linkPath="/home" />
+    <NavButton text="Sign In" linkPath="" />
         <View> 
             <StatusBar style="auto" />
         </View>
