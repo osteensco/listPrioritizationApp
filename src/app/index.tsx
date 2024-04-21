@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { registerRootComponent } from 'expo'
 import Home from './home'
 import LandingPage from './landing'
@@ -9,8 +8,6 @@ import LandingPage from './landing'
 
 
 export default function App() {
-
-const [modalVisible, setModalVisible] = useState(false)
     
 
 // check user cred cache, if miss:

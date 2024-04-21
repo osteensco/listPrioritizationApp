@@ -14,7 +14,7 @@ export const NavButton = ({text, linkPath}: navButtonProps) => {
 
     return (
         <Link href={linkPath} asChild>
-            <Pressable>
+            <Pressable onPress={()=> {console.log(linkPath)}}>
                 {({ pressed }) => (
                     <View style={[styles.button,{ backgroundColor: pressed ? '#4B4B4B' : '#8711f580'  },]}>
                         <Text style={styles.textButton}>{text}</Text>

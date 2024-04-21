@@ -34,7 +34,12 @@ export default function Home() {
             </View>
             <View style={styles.container}>
                 <View style={styles.container}>
-                    <NavButton text="Create New List" linkPath="/dynamicListPage"/> 
+                    <NavButton 
+                        text="Create New List" 
+                        linkPath={
+                           {pathname: "/list/[name]", params: {name: "new list"}}
+                        }
+                    /> 
                 </View>
                 <SafeAreaView style={styles.container}>
                     <SignInButton setModalVisible={setModalVisible}/>
