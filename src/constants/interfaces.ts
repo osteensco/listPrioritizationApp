@@ -20,7 +20,7 @@ export interface modalProps {
     setVisible: Function,
 }
 
-export interface signinButtonProps {
+export interface modalButtonProps {
     setModalVisible: Function,
 }
 

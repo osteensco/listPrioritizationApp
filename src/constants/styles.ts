@@ -4,6 +4,12 @@ import { StyleSheet } from 'react-native';
 
 
 
+
+const top = -30
+const left = -30
+
+
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -46,21 +52,33 @@ export const styles = StyleSheet.create({
         borderColor: '#8711f580',
         borderRadius: 10,
     },
-  modalView: {
-          margin: 20,
-              backgroundColor: 'white',
-                  borderRadius: 20,
-                      padding: 35,
-                          alignItems: 'center',
-                              shadowColor: '#000',
-                                  shadowOffset: {
-                                            width: 0,
-                                                  height: 2,
-                                                      },
-                                                          shadowOpacity: 0.25,
-                                                              shadowRadius: 4,
-                                                                  elevation: 5,
-                                                                    },
+    modalView: {
+        margin: 20,
+        backgroundColor: '#4B4B4B',
+        borderRadius: 20,
+        padding: 35,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    xSymbol: {
+        color: 'white', 
+    },
+    closeButton: {
+        height: 20,
+        width: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 50,
+        backgroundColor: 'red',
+        top,
+        left,
+    },
 
 });
 
