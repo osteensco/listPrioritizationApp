@@ -1,6 +1,7 @@
 import { registerRootComponent } from 'expo'
 import Home from './home'
 import LandingPage from './landing'
+import { DB, dbTest } from '../database/local'
 
 
 
@@ -15,6 +16,8 @@ export default function App() {
 // return (<LandingPage/>)
 //
 // otherwise go to home screen
+    dbTest()
+    // dbTest(DB)
     let cache_creds = false
     
     if (!cache_creds) {
