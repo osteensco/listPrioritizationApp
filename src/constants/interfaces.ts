@@ -11,6 +11,7 @@ export interface listScreenProps {
 
 export interface listLinkParamProps {
     name: string,
+    items: string[],
 }
 
 

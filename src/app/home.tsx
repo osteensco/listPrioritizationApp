@@ -37,7 +37,7 @@ export default function Home() {
                     <NavButton 
                         text="Create New List" 
                         linkPath={
-                           {pathname: "/list/[name]", params: {name: "new list"}}
+                           {pathname: "/list/[name]", params: {name: "new list", items: ['item1', 'item2', 'item3']}}
                         }
                     /> 
                 </View>
