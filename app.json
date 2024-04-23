@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.prioritizer"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,6 +31,14 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "c0f51bbf-433d-4096-944a-9e72e7c2fa35"
+      }
+    }
   }
 }
