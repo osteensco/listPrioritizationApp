@@ -16,8 +16,9 @@ export default function App() {
 // return (<LandingPage/>)
 //
 // otherwise go to home screen
-    dbTest()
-    // dbTest(DB)
+    console.log(DB.getAllKeys())
+    DB.clearAll()
+    console.log(DB.getAllKeys())
     let cache_creds = false
     
     if (!cache_creds) {

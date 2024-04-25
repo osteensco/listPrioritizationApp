@@ -14,16 +14,8 @@ export default function ListPage() {
   console.log(List)
   return (
     <View style={styles.container}>
-        <Stack.Screen
-            options={{
-            headerShown: false,
-            }}
-        />
-        <Drawer.Screen
-            options={{
-                headerShown: false,
-            }}
-        />
+        <Stack.Screen/>
+        <Drawer.Screen/>
         <Text>I'm a dynamic list page! :D</Text>
         <Text>Here's some dynamic data passed to me: </Text>
         <Text>{List.listName}</Text>
