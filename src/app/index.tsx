@@ -1,7 +1,7 @@
 import { registerRootComponent } from 'expo'
 import Home from './home'
 import LandingPage from './landing'
-import { DB, dbTest } from '../database/local'
+import { DB } from '../database/local'
 
 
 
@@ -19,6 +19,7 @@ export default function App() {
     console.log(DB.getAllKeys())
     DB.clearAll()
     console.log(DB.getAllKeys())
+    
     let cache_creds = false
     
     if (!cache_creds) {

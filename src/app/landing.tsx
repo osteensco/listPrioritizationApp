@@ -23,8 +23,8 @@ export default function LandingPage() {
                 headerShown: false,
             }}
         />
-    <NavButton text="Continue" linkPath="/home" />
-    <NavButton text="Sign In" linkPath="" />
+    <NavButton text="Continue" linkPath="/home" clickAction={()=>{}}/>
+    <NavButton text="Sign In" linkPath="" clickAction={()=>{}} />
         <View> 
             <StatusBar style="auto" />
         </View>

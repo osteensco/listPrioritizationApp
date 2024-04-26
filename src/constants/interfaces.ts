@@ -11,7 +11,7 @@ export interface listScreenProps {
 
 export interface listLinkParamProps {
     name: string,
-    items: string[],
+    items: string,
 }
 
 
@@ -26,6 +26,7 @@ export interface listLinkProps {
 export interface navButtonProps {
     text: string,
     linkPath: string | listLinkProps,
+    clickAction: Function,
 }
 
 
