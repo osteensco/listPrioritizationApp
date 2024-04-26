@@ -1,6 +1,6 @@
 import { View, Pressable, Text } from "react-native";
 import { styles } from "../constants/styles";
-import { modalButtonProps } from "../constants/interfaces";
+import { closeButtonProps } from "../constants/interfaces";
 
 
 
@@ -8,7 +8,7 @@ import { modalButtonProps } from "../constants/interfaces";
 
 
 
-export const CloseButton = ( { setModalVisible }: modalButtonProps) => {
+export const CloseButton = ( { setModalVisible }: closeButtonProps) => {
 
     return (
         <Pressable 

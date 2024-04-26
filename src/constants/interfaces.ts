@@ -46,7 +46,17 @@ export interface modalProps {
 
 export interface modalButtonProps {
     setModalVisible: Function,
+    text: string,
 }
+
+
+
+export interface closeButtonProps {
+    setModalVisible: Function,
+}
+
+
+
 
 
 

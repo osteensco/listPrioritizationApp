@@ -4,11 +4,11 @@ import { styles } from '../constants/styles'
 import { Stack } from 'expo-router';
 import { Item } from '../components/item'
 import { Drawer } from 'expo-router/drawer';
-import { SignInButton } from '../components/signInButton';
 import { SignInModal } from '../modals/signInModal';
 import { useState } from 'react';
 import { NavButton } from '../components/navButton';
 import { DB } from '../database/local';
+import { ModalButton } from '../components/modalButton';
 
 
 
@@ -46,7 +46,7 @@ export default function Home() {
                     /> 
                 </View>
                 <SafeAreaView style={styles.container}>
-                    <SignInButton setModalVisible={setModalVisible}/>
+                    <ModalButton setModalVisible={setModalVisible} text="Sign In"/>
                 </SafeAreaView>
             </View>
         </View>
