@@ -1,12 +1,13 @@
-import { FlatList, SafeAreaView, View } from 'react-native';
+import { Alert, Button, FlatList, SafeAreaView, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 import { styles } from '../../constants/styles';
 import { Item } from '../../components/item';
 import { ModalButton } from '../../components/modalButton';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { PMenuModal } from '../../modals/pMenuModal';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
@@ -19,6 +20,9 @@ export default function ListPage() {
     const [modalVisible, setModalVisible] = useState(false)
     const List = useLocalSearchParams()
     console.log(List)
+    let listItems = JSON.parse(List.items)
+    let lastIndex = listItems ? listItems.length - 1 : 0
+
 
     return (
         <View style={styles.container}>
@@ -31,8 +35,31 @@ export default function ListPage() {
             <View style={styles.container}>
                 <View style={styles.main_area}>
                     <FlatList
-                        data={JSON.parse(List.items)}
-                        renderItem={({item}) => <Item text={item} />}
+                        data={listItems}
+                        renderItem={
+                            ({item, index}) => {
+                                return(
+                                    index < lastIndex ?
+                                        <TouchableOpacity>
+                                            <Item text={item} />
+                                        </TouchableOpacity>
+                                    :
+                                        <Fragment>
+                                            <TouchableOpacity>
+                                                <Item text={item} />
+                                            </TouchableOpacity>
+                                            <Button 
+                                                title="Add Item" 
+                                                color="#f194ff"
+                                                onPress={
+                                                    () => Alert.alert('Added pressed')
+                                                }
+                                            />
+                                        
+                                        </Fragment>
+                                )
+                            }
+                        }
                         // keyExtractor={item => item.id}
                     />
                     <StatusBar style="auto" />

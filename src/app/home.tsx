@@ -19,7 +19,7 @@ export default function Home() {
     const [modalVisible, setModalVisible] = useState(false)
  
     const LISTNAMES = DB.getAllKeys()
-    const ITEMS = JSON.stringify(["listItem_1", "listItem_2"]) 
+    const ITEMS = JSON.stringify(["listItem_1", "listItem_2", "listItem_2", "listItem_2", "listItem_2", "listItem_4"]) 
     return (
         <View style={styles.container}>
             <Stack.Screen options={{headerTitle:""}}/>
