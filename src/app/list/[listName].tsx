@@ -1,4 +1,4 @@
-import { Alert, Button, FlatList, SafeAreaView, View } from 'react-native';
+import { Alert, Button, FlatList, SafeAreaView, TextInput, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
@@ -8,6 +8,7 @@ import { ModalButton } from '../../components/modalButton';
 import { Fragment, useState } from 'react';
 import { PMenuModal } from '../../modals/pMenuModal';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DB } from '../../database/local';
 
 
 
@@ -16,10 +17,15 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 export default function ListPage() {
-    
+
+    // add state for changing 'Add Item' button to minimize right and show a text input field
+    const [newInputVisible, setNewInputVisible] = useState(false)
+    const [newItemText, onChangeText] = useState("")
     const [modalVisible, setModalVisible] = useState(false)
     const List = useLocalSearchParams()
+
     console.log(List)
+    
     let listItems = JSON.parse(List.items)
     let lastIndex = listItems ? listItems.length - 1 : 0
 
@@ -38,26 +44,61 @@ export default function ListPage() {
                         data={listItems}
                         renderItem={
                             ({item, index}) => {
-                                return(
-                                    index < lastIndex ?
-                                        <TouchableOpacity>
-                                            <Item text={item} />
-                                        </TouchableOpacity>
-                                    :
-                                        <Fragment>
+                                if (newInputVisible) {
+                                    return(
+                                        index < lastIndex ?
                                             <TouchableOpacity>
                                                 <Item text={item} />
                                             </TouchableOpacity>
-                                            <Button 
-                                                title="Add Item" 
-                                                color="#f194ff"
-                                                onPress={
-                                                    () => Alert.alert('Added pressed')
-                                                }
-                                            />
-                                        
-                                        </Fragment>
-                                )
+                                        :
+                                            <Fragment>
+                                                <TouchableOpacity>
+                                                    <Item text={item} />
+                                                </TouchableOpacity>
+                                                <TextInput
+                                                    onChangeText={onChangeText}
+                                                    value={newItemText}
+                                                />
+                                                <Button 
+                                                    title="Add Item" 
+                                                    color="#f194ff"
+                                                    onPress={
+                                                        () => {
+                                                            DB.set(newItemText, "")
+                                                            setNewInputVisible(false)
+                                                        } 
+                                                    }
+                                                />
+                                                <Button 
+                                                    title="X" 
+                                                    color="#f194ff"
+                                                    onPress={
+                                                        () => {
+                                                            setNewInputVisible(false)
+                                                        } 
+                                                    }
+                                                />
+                                            </Fragment>
+                                    )
+                                } else {
+                                    return(
+                                        index < lastIndex ?
+                                            <TouchableOpacity>
+                                                <Item text={item} />
+                                            </TouchableOpacity>
+                                        :
+                                            <Fragment>
+                                                <TouchableOpacity>
+                                                    <Item text={item} />
+                                                </TouchableOpacity>
+                                                <Button 
+                                                    title="Add Item" 
+                                                    color="#f194ff"
+                                                    onPress={()=>setNewInputVisible(true)}
+                                                />
+                                            </Fragment>
+                                    )
+                                }
                             }
                         }
                         // keyExtractor={item => item.id}
