@@ -9,7 +9,7 @@ import { CloseButton } from '../components/closeButton';
 
 
 
-export const PMenuModal = ({visible, setVisible}: modalProps) => ( 
+export const MenuModal = ({visible, setVisible}: modalProps) => ( 
 
     <Modal
         animationType="slide" 

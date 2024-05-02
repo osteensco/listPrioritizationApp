@@ -18,7 +18,10 @@ import { DB } from '../../database/local';
 
 export default function ListPage() {
 
-    // add state for changing 'Add Item' button to minimize right and show a text input field
+    // TODO
+    // -- refactor list data model
+    // -- remove hardcoded items and use actual DB
+
     const [newInputVisible, setNewInputVisible] = useState(false)
     const [newItemText, onChangeText] = useState("")
     const [modalVisible, setModalVisible] = useState(false)
@@ -26,7 +29,7 @@ export default function ListPage() {
 
     console.log(List)
     
-    let listItems = JSON.parse(List.items)
+    let listItems = JSON.parse(List.items as string)
     let lastIndex = listItems ? listItems.length - 1 : 0
 
 
@@ -66,6 +69,7 @@ export default function ListPage() {
                                                         () => {
                                                             DB.set(newItemText, "")
                                                             setNewInputVisible(false)
+                                                            console.log(DB.getAllKeys())
                                                         } 
                                                     }
                                                 />
