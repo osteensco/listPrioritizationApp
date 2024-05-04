@@ -1,3 +1,4 @@
+import { MMKV } from "react-native-mmkv"
 
 
 
@@ -57,6 +58,11 @@ export interface closeButtonProps {
 
 
 
-
+export interface listInputProps {
+    onChangeText: React.Dispatch<React.SetStateAction<string>>, 
+    newItemText: string, 
+    DB: MMKV, 
+    setNewInputVisible: Function,
+} 
 
 

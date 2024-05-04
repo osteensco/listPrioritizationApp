@@ -9,6 +9,7 @@ import { Fragment, useState } from 'react';
 import { PMenuModal } from '../../modals/pMenuModal';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { DB } from '../../database/local';
+import { ListInput } from '../../components/listInput';
 
 
 
@@ -20,20 +21,19 @@ export default function ListPage() {
 
     // TODO
     // -- refactor list data model
-    // -- remove hardcoded items and use actual DB
     // -- add edit list name button
     // -- add edit and remove list item buttons
 
     const [newInputVisible, setNewInputVisible] = useState(false)
-    const [newItemText, onChangeText] = useState("")
+    const [newItemText, onChangeText] = useState("new item")
     const [modalVisible, setModalVisible] = useState(false)
     const List = useLocalSearchParams()
 
     console.log(List)
     
-    let listItems = JSON.parse(List.items as string)
+    let listItems = JSON.parse(DB.getString(List.listName as string) as string)
+    console.log(listItems)
     let lastIndex = listItems ? listItems.length - 1 : 0
-
 
     return (
         <View style={styles.container}>
@@ -45,10 +45,14 @@ export default function ListPage() {
 
             <View style={styles.container}>
                 <View style={styles.main_area}>
+                    {
+                    listItems.length != 0 ? 
                     <FlatList
                         data={listItems}
                         renderItem={
                             ({item, index}) => {
+                                console.log(`inputVis: ${newInputVisible}`)
+                                console.log(`${index} < ${lastIndex}`)
                                 if (newInputVisible) {
                                     return(
                                         index < lastIndex ?
@@ -64,29 +68,18 @@ export default function ListPage() {
                                                     onChangeText={onChangeText}
                                                     value={newItemText}
                                                 />
-                                                <Button 
-                                                    title="Add Item" 
-                                                    color="#f194ff"
-                                                    onPress={
-                                                        () => {
-                                                            DB.set(newItemText, "")
-                                                            setNewInputVisible(false)
-                                                            console.log(DB.getAllKeys())
-                                                        } 
-                                                    }
-                                                />
-                                                <Button 
-                                                    title="X" 
-                                                    color="#f194ff"
-                                                    onPress={
-                                                        () => {
-                                                            setNewInputVisible(false)
-                                                        } 
-                                                    }
+                                                <ListInput
+                                                    onChangeText={onChangeText}
+                                                    newItemText={newItemText}
+                                                    DB={DB}
+                                                    setNewInputVisible={setNewInputVisible}
                                                 />
                                             </Fragment>
                                     )
                                 } else {
+                                    console.log("inputvis false rendered")
+                                    console.log(`inputVis: ${newInputVisible}`)
+                                    console.log(`${index} < ${lastIndex}`)
                                     return(
                                         index < lastIndex ?
                                             <TouchableOpacity>
@@ -109,6 +102,29 @@ export default function ListPage() {
                         }
                         // keyExtractor={item => item.id}
                     />
+                    :
+                    <FlatList
+                        data={[0]}
+                        renderItem={
+                            ({item, index}) => {
+                                return (
+                                    <Fragment>
+                                    <TextInput
+                                        onChangeText={onChangeText}
+                                        value={newItemText}
+                                    />
+                                    <ListInput
+                                        onChangeText={onChangeText}
+                                        newItemText={newItemText}
+                                        DB={DB}
+                                        setNewInputVisible={setNewInputVisible}
+                                    />
+                                    </Fragment>
+                                )
+                            }
+                        }
+                    />
+                    }
                     <StatusBar style="auto" />
                 </View>
             </View>
