@@ -21,6 +21,8 @@ export default function ListPage() {
     // TODO
     // -- refactor list data model
     // -- remove hardcoded items and use actual DB
+    // -- add edit list name button
+    // -- add edit and remove list item buttons
 
     const [newInputVisible, setNewInputVisible] = useState(false)
     const [newItemText, onChangeText] = useState("")

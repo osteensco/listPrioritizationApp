@@ -1,4 +1,4 @@
-import { View, FlatList, SafeAreaView } from 'react-native';
+import { View, FlatList, SafeAreaView, Pressable } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { styles } from '../constants/styles'
 import { Stack } from 'expo-router';
@@ -15,11 +15,15 @@ import { ModalButton } from '../components/modalButton';
 
 
 export default function Home() {
-   
+    // TODO
+    // -- each list should be pressable and navigate to it's list page
+    // -- if no list items, display "no lists found, get started by adding a new list"
+
     const [modalVisible, setModalVisible] = useState(false)
  
-    const LISTNAMES = DB.getAllKeys()
-    const ITEMS = JSON.stringify(["listItem_1", "listItem_2", "listItem_2", "listItem_2", "listItem_2", "listItem_4"]) 
+    const LISTNAMES = DB.getAllKeys() 
+    const ITEMS = JSON.stringify([]) 
+
     return (
         <View style={styles.container}>
             <Stack.Screen options={{headerTitle:""}}/>
@@ -29,7 +33,24 @@ export default function Home() {
                 <View style={styles.main_area}>
                     <FlatList
                         data={LISTNAMES}
-                        renderItem={({item}) => <Item text={item} />}
+                        renderItem={({item}) => {
+                            
+                            let listItems = "[]"
+    
+                            return (
+                                <NavButton 
+                                    clickAction={()=>{
+                                        
+                                        const listObj = DB.getString(item) 
+                                        listItems = listObj ? listObj : listItems
+
+                                    }}
+                                    text={item}
+                                    linkPath={
+                                        {pathname: "/list/[name]", params: {name: item, items: listItems }}
+                                    }
+                                />
+                            )}}
                         // keyExtractor={item => item.id}
                     />
                     <StatusBar style="auto" />
