@@ -1,4 +1,4 @@
-import { View, FlatList, SafeAreaView, Pressable } from 'react-native';
+import { View, FlatList, SafeAreaView, Pressable, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { styles } from '../constants/styles'
 import { Stack } from 'expo-router';
@@ -31,6 +31,9 @@ export default function Home() {
             <SignInModal visible={modalVisible} setVisible={setModalVisible}/>
             <View style={styles.container}>
                 <View style={styles.main_area}>
+                    LISTNAMES == [] ?
+                    <Text>"no lists found, get started by adding a new list</Text>
+                    :
                     <FlatList
                         data={LISTNAMES}
                         renderItem={({item}) => {
